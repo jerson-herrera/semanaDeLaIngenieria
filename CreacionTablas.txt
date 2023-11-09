@@ -1,0 +1,206 @@
+--BASE DE DATOS POSTGREE
+
+CREATE TABLE Proyectos (
+    ProyectoId SERIAL PRIMARY KEY,
+    ProgramaAcademico VARCHAR(255),
+    Facultad VARCHAR(255),
+    GrupoInvestigacion VARCHAR(255),
+    ResolucionRectoralAprueba VARCHAR(255),
+    ConvocatoriaAprueba VARCHAR(255),
+    FechaInicio DATE,
+    FechaFinalizacion DATE,
+    Estado VARCHAR(50),
+    ActaInicio VARCHAR(255),
+    ActaCompromiso VARCHAR(255),
+    ActaPropiedadIntelectual VARCHAR(255),
+    GuiaSoporte VARCHAR(255),
+    Investigadores VARCHAR(255),
+    Semillero VARCHAR(255),
+    Titulo VARCHAR(255),
+    Resumen TEXT,
+    Objetivos TEXT,
+    Metodologia TEXT,
+    Cronograma TEXT
+);
+
+
+
+
+
+CREATE TABLE Estudiantes (
+    EstudianteId SERIAL PRIMARY KEY,
+    NombreCompleto VARCHAR(100),
+    ProyectoId INT,
+    FOREIGN KEY (ProyectoId) REFERENCES Proyectos(ProyectoId)
+);
+
+
+
+
+
+CREATE TABLE Usuarios (
+    UsuarioId SERIAL PRIMARY KEY,
+    Nombres VARCHAR(100),
+    Usuario VARCHAR(50),
+    Password VARCHAR(255), -- Debes almacenar las contraseñas de forma segura, preferiblemente hasheadas.
+    TipoUsuario VARCHAR(50)
+);
+
+
+
+
+
+INSERT INTO Proyectos (
+    ProgramaAcademico, 
+    Facultad, 
+    GrupoInvestigacion, 
+    ResolucionRectoralAprueba, 
+    ConvocatoriaAprueba, 
+    FechaInicio, 
+    FechaFinalizacion, 
+    Estado, 
+    ActaInicio, 
+    ActaCompromiso, 
+    ActaPropiedadIntelectual, 
+    GuiaSoporte, 
+    Investigadores, 
+    Semillero, 
+    Titulo, 
+    Resumen, 
+    Objetivos, 
+    Metodologia, 
+    Cronograma
+) VALUES
+(
+    'Programa 1',
+    'Facultad 1',
+    'Grupo 1',
+    'Resolucion 001',
+    'Convocatoria 2023',
+    '2023-01-01',
+    '2023-12-31',
+    'En progreso',
+    'Acta Inicio 001',
+    'Acta Compromiso 001',
+    'Acta Propiedad 001',
+    'Guía Soporte 001',
+    'Investigador 1, Investigador 2',
+    'Semillero 1',
+    'Título del Proyecto 1',
+    'Resumen del Proyecto 1',
+    'Objetivos del Proyecto 1',
+    'Metodología del Proyecto 1',
+    'Cronograma del Proyecto 1'
+),
+(
+    'Programa 2',
+    'Facultad 2',
+    'Grupo 2',
+    'Resolucion 002',
+    'Convocatoria 2023',
+    '2023-02-01',
+    '2023-11-30',
+    'Concluido',
+    'Acta Inicio 002',
+    'Acta Compromiso 002',
+    'Acta Propiedad 002',
+    'Guía Soporte 002',
+    'Investigador 3, Investigador 4',
+    'Semillero 2',
+    'Título del Proyecto 2',
+    'Resumen del Proyecto 2',
+    'Objetivos del Proyecto 2',
+    'Metodología del Proyecto 2',
+    'Cronograma del Proyecto 2'
+),
+(
+    'Programa 3',
+    'Facultad 1',
+    'Grupo 3',
+    'Resolucion 003',
+    'Convocatoria 2023',
+    '2023-03-01',
+    '2023-10-31',
+    'En revisión',
+    'Acta Inicio 003',
+    'Acta Compromiso 003',
+    'Acta Propiedad 003',
+    'Guía Soporte 003',
+    'Investigador 5, Investigador 6',
+    'Semillero 3',
+    'Título del Proyecto 3',
+    'Resumen del Proyecto 3',
+    'Objetivos del Proyecto 3',
+    'Metodología del Proyecto 3',
+    'Cronograma del Proyecto 3'
+),
+(
+    'Programa 1',
+    'Facultad 2',
+    'Grupo 1',
+    'Resolucion 004',
+    'Convocatoria 2023',
+    '2023-04-01',
+    '2023-09-30',
+    'Concluido',
+    'Acta Inicio 004',
+    'Acta Compromiso 004',
+    'Acta Propiedad 004',
+    'Guía Soporte 004',
+    'Investigador 7, Investigador 8',
+    'Semillero 1',
+    'Título del Proyecto 4',
+    'Resumen del Proyecto 4',
+    'Objetivos del Proyecto 4',
+    'Metodología del Proyecto 4',
+    'Cronograma del Proyecto 4'
+),
+(
+    'Programa 2',
+    'Facultad 1',
+    'Grupo 2',
+    'Resolucion 005',
+    'Convocatoria 2023',
+    '2023-05-01',
+    '2023-08-31',
+    'En progreso',
+    'Acta Inicio 005',
+    'Acta Compromiso 005',
+    'Acta Propiedad 005',
+    'Guía Soporte 005',
+    'Investigador 9, Investigador 10',
+    'Semillero 2',
+    'Título del Proyecto 5',
+    'Resumen del Proyecto 5',
+    'Objetivos del Proyecto 5',
+    'Metodología del Proyecto 5',
+    'Cronograma del Proyecto 5'
+);
+
+
+
+
+
+
+-- Insertar registros en la tabla Estudiantes
+INSERT INTO Estudiantes (NombreCompleto, ProyectoId) VALUES
+    ('Juan Pérez', 1),
+    ('María González', 2),
+    ('Carlos Rodríguez', 2),
+    ('Ana Martínez', 3),
+    ('Luis Sánchez', 5);
+
+
+
+
+
+-- Insertar registros en la tabla Usuarios
+INSERT INTO Usuarios (Nombres, Usuario, Password, TipoUsuario) VALUES
+    ('Juan Pérez', 'juan.perez', 'contraseña123', 'Administrados'),
+    ('María González', 'maria.gonzalez', 'clave456', 'Proyecto'),
+    ('Carlos Rodríguez', 'carlos.rodriguez', 'pass789', 'Proyecto'),
+    ('Ana Martínez', 'ana.martinez', 'segura123', 'Proyecto'),
+    ('Luis Sánchez', 'luis.sanchez', 'miPassword', 'Proyecto');
+
+
+
