@@ -31,9 +31,9 @@ CREATE TABLE Estudiantes (
     EstudianteId SERIAL PRIMARY KEY,
     NombreCompleto VARCHAR(100),
     ProyectoId INT,
+    Rol VARCHAR(50), -- Nueva columna
     FOREIGN KEY (ProyectoId) REFERENCES Proyectos(ProyectoId)
 );
-
 
 
 
@@ -183,12 +183,12 @@ INSERT INTO Proyectos (
 
 
 -- Insertar registros en la tabla Estudiantes
-INSERT INTO Estudiantes (NombreCompleto, ProyectoId) VALUES
-    ('Juan Pérez', 1),
-    ('María González', 2),
-    ('Carlos Rodríguez', 2),
-    ('Ana Martínez', 3),
-    ('Luis Sánchez', 5);
+INSERT INTO Estudiantes (NombreCompleto, ProyectoId, Rol) VALUES
+    ('Juan Pérez', 1, 'Estudiante'),
+    ('María González', 2, 'Líder de semillero'),
+    ('Carlos Rodríguez', 2, 'Investigador Principal'),
+    ('Ana Martínez', 3, 'Co-Investigador'),
+    ('Luis Sánchez', 5, 'Estudiante');
 
 
 
@@ -201,6 +201,10 @@ INSERT INTO Usuarios (Nombres, Usuario, Password, TipoUsuario) VALUES
     ('Carlos Rodríguez', 'carlos.rodriguez', 'pass789', 'Proyecto'),
     ('Ana Martínez', 'ana.martinez', 'segura123', 'Proyecto'),
     ('Luis Sánchez', 'luis.sanchez', 'miPassword', 'Proyecto');
+
+
+
+
 
 
 

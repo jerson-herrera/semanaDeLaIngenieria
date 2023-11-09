@@ -5,15 +5,15 @@ const routerEstudiantes = Router();
 
 
 
-const { getEstudiantes, getEstudianteById} = require('../controllers/estudiantes');
+const { getEstudiantes, getEstudianteById, getEstudiantesPorRol, createEstudiante, updateEstudiante, deleteEstudiante} = require('../controllers/estudiantes');
 
-//, getEstudianteById, getTipoEstudiante, createEstudiante, updateEstudiante, deleteEstudiante
+
 routerEstudiantes.get('/getAllEstudiantes',                       getEstudiantes                      );
 routerEstudiantes.get('/getEstudiante/:EstudianteId',                       getEstudianteById                   ); 
-// routerEstudiantes.get('/getTipoEstudiante/:tipoEstudiante',          getTipoEstudiante                   );
-// routerEstudiantes.post('/CrearEstudiante',                        createEstudiante                    );
-// routerEstudiantes.put('/updateEstudiante/:id',                    updateEstudiante                    );
-// routerEstudiantes.delete('/deleteEstudiante/:id',                 deleteEstudiante                    );
+routerEstudiantes.get('/getEstudiantesPorRol/:RolEstudiante',          getEstudiantesPorRol                   );
+routerEstudiantes.post('/CreateEstudiante',                        createEstudiante                    );
+routerEstudiantes.put('/updateEstudiante/:EstudianteId',                    updateEstudiante                    );
+routerEstudiantes.delete('/deleteEstudiante/:EstudianteId',                 deleteEstudiante                    );
 
 
 

@@ -5,7 +5,7 @@ const routerProyectos = Router();
 
 
 
-const { getProyectos, getProyectoById, deleteProyecto, createProyecto, updateProyecto}  = require('../controllers/Proyectos');
+const { getProyectos, getProyectoById, deleteProyecto, createProyecto, updateProyecto}  = require('../controllers/proyectos');
 //getTipoProyecto
 
 
